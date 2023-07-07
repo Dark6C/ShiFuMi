@@ -1,21 +1,19 @@
 :root {
   --primary: #00d9ff;
   --secondary: #ff8800;
-  
+
   --action: #ff6565;
   --border-radius: 15px;
   --btn-padding: 20px;
 }
 
 html {
-  background-image: url(../img/wallpaperflare.com_wallpaper.jpg) ; 
+  background-image: url(../img/wallpaperflare.com_wallpaper.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
   background-attachment: fixed;
- 
 }
-
 
 * {
   margin: 0;
@@ -32,7 +30,7 @@ body {
 }
 
 .score {
-  margin-top: 20px;
+  margin-top: 45px;
   margin-bottom: 40px;
   display: grid;
   grid-template-columns: repeat(2, 200px);
@@ -141,5 +139,11 @@ body {
   font-size: 30px;
   grid-column: span 2;
 }
+
+h1 {
+  font-size: 70px;
+  margin-top: 10px;
+}
+
 
 

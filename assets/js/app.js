@@ -90,20 +90,23 @@ const victoireOrdinateur = () => {
   scoreO++;
   scoreOrdinateur.textContent = scoreO;
   const pourcentage = calculerPourcentageVictoire();
-  document.getElementById("winrate").textContent = `Votre winrate est de : ${pourcentage} %`;
-  scoreOrdinateur.textContent = scoreO
+  document.getElementById(
+    "winrate"
+  ).textContent = `Votre winrate est de : ${pourcentage} %`;
+  scoreOrdinateur.textContent = scoreO;
 
   const computerWinSound = document.getElementById("computerWinSound");
   computerWinSound.play();
 };
 
-
 const victoireJoueur = () => {
   message.textContent = "Vous avez gagné ! :)";
   scoreJ++;
-  scoreJoueur.textContent = scoreJ
+  scoreJoueur.textContent = scoreJ;
   const pourcentage = calculerPourcentageVictoire();
-  document.getElementById("winrate").textContent = `Votre winrate est de : ${pourcentage} %`;
+  document.getElementById(
+    "winrate"
+  ).textContent = `Votre winrate est de : ${pourcentage} %`;
 
   const playerWinSound = document.getElementById("playerWinSound");
   playerWinSound.play();
@@ -132,23 +135,17 @@ btnJoueur.forEach((btn) => btn.addEventListener("click", jouerManche));
 
 resetBtn.addEventListener("click", () => {
   scoreJoueur.textContent = 0;
-  scoreJ = 0
+  scoreJ = 0;
   scoreOrdinateur.textContent = 0;
-  scoreO = 0
+  scoreO = 0;
   preparerNouvelleManche();
 });
 
-
 const calculerPourcentageVictoire = () => {
-  const totalGames = scoreJ + scoreO
-  if(totalGames === 0){
-    return 0
+  const totalGames = scoreJ + scoreO;
+  if (totalGames === 0) {
+    return 0;
   }
-  const pourcentage = (scoreJ/totalGames)*100;
+  const pourcentage = (scoreJ / totalGames) * 100;
   return pourcentage.toFixed(1);
 };
-
-
-
-
-
