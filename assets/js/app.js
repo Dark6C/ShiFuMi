@@ -120,10 +120,9 @@ nextBtn.addEventListener("click", preparerNouvelleManche);
 btnJoueur.forEach((btn) => btn.addEventListener("click", jouerManche));
 
 resetBtn.addEventListener("click", () => {
-  scoreJoueur.textContent = scoreJ
   scoreJoueur.textContent = 0;
-  scoreOrdinateur.textContent = scoreO
+  scoreJ = 0
   scoreOrdinateur.textContent = 0;
-
+  scoreO = 0
   preparerNouvelleManche();
 });
