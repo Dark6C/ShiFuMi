@@ -88,7 +88,13 @@ const verifierGagnant = (choixJoueur, choixOrdi) => {
 const victoireOrdinateur = () => {
   message.textContent = "L'ordinateur gagne...";
   scoreO++;
+  scoreOrdinateur.textContent = scoreO;
+  const pourcentage = calculerPourcentageVictoire();
+  document.getElementById("winrate").textContent = `Votre winrate est de : ${pourcentage} %`;
   scoreOrdinateur.textContent = scoreO
+
+  const computerWinSound = document.getElementById("computerWinSound");
+  computerWinSound.play();
 };
 
 
@@ -96,6 +102,11 @@ const victoireJoueur = () => {
   message.textContent = "Vous avez gagné ! :)";
   scoreJ++;
   scoreJoueur.textContent = scoreJ
+  const pourcentage = calculerPourcentageVictoire();
+  document.getElementById("winrate").textContent = `Votre winrate est de : ${pourcentage} %`;
+
+  const playerWinSound = document.getElementById("playerWinSound");
+  playerWinSound.play();
 };
 
 const preparerNouvelleManche = () => {
@@ -126,3 +137,18 @@ resetBtn.addEventListener("click", () => {
   scoreO = 0
   preparerNouvelleManche();
 });
+
+
+const calculerPourcentageVictoire = () => {
+  const totalGames = scoreJ + scoreO
+  if(totalGames === 0){
+    return 0
+  }
+  const pourcentage = (scoreJ/totalGames)*100;
+  return pourcentage.toFixed(1);
+};
+
+
+
+
+
