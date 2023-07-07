@@ -45,7 +45,7 @@ body {
 }
 
 #reset {
-  font-size: 12px;
+  font-size: 20px;
   grid-column: span 2;
   cursor: pointer;
 }
@@ -137,5 +137,9 @@ body {
   color: white;
 }
 
+#winrate {
+  font-size: 25px;
+  grid-column: span 2;
+}
 
 
