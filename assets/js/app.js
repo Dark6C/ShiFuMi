@@ -9,6 +9,7 @@ let message = document.getElementById("message");
 let nextBtn = document.getElementById("next");
 let scoreO = 0;
 let scoreJ = 0;
+let winrate = document.getElementById("winrate")
 
 const jouerManche = (e) => {
   let choix = e.target.closest(".btn-joueur");
@@ -85,16 +86,14 @@ const verifierGagnant = (choixJoueur, choixOrdi) => {
   }
 };
 
+
 const victoireOrdinateur = () => {
   message.textContent = "L'ordinateur gagne...";
   scoreO++;
   scoreOrdinateur.textContent = scoreO;
   const pourcentage = calculerPourcentageVictoire();
-  document.getElementById(
-    "winrate"
-  ).textContent = `Votre winrate est de : ${pourcentage} %`;
+ winrate.textContent = `Votre winrate est de : ${pourcentage} %`;
   scoreOrdinateur.textContent = scoreO;
-
   const computerWinSound = document.getElementById("computerWinSound");
   computerWinSound.play();
 };
@@ -104,10 +103,7 @@ const victoireJoueur = () => {
   scoreJ++;
   scoreJoueur.textContent = scoreJ;
   const pourcentage = calculerPourcentageVictoire();
-  document.getElementById(
-    "winrate"
-  ).textContent = `Votre winrate est de : ${pourcentage} %`;
-
+winrate.textContent = `Votre winrate est de : ${pourcentage} %`;
   const playerWinSound = document.getElementById("playerWinSound");
   playerWinSound.play();
 };
@@ -138,6 +134,7 @@ resetBtn.addEventListener("click", () => {
   scoreJ = 0;
   scoreOrdinateur.textContent = 0;
   scoreO = 0;
+winrate.textContent =  'Votre winrate est de  : 0.0%'
   preparerNouvelleManche();
 });
 
