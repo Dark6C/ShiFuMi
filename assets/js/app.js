@@ -1,6 +1,8 @@
+// déclaration des variables 
 let resetBtn = document.getElementById("reset");
 let scoreJoueur = document.getElementById("score-joueur");
 let scoreOrdinateur = document.getElementById("score-ordinateur");
+// nodelist => tableau spreadOperator tableau 3 btn joueur 
 let btnJoueur = [...document.getElementsByClassName("btn-joueur")];
 let oswordBtn = document.getElementById("osword");
 let oshieldBtn = document.getElementById("oshield");
@@ -10,10 +12,15 @@ let nextBtn = document.getElementById("next");
 let scoreO = 0;
 let scoreJ = 0;
 let winrate = document.getElementById("winrate")
+    
+
+// .closest pour récuperer toute la div qui possède la classe .btn-joueur 
 
 const jouerManche = (e) => {
   let choix = e.target.closest(".btn-joueur");
 
+
+  // pour chaque bouton joueur désactiver le style
   btnJoueur.forEach((btn) => {
     btn.classList.add("desactivated");
     btn.removeEventListener("click", jouerManche);
@@ -28,6 +35,7 @@ const jouerManche = (e) => {
 
   verifierGagnant(choixJoueur, choixOrdi);
 
+  // bouton tour suivant a la fin du tour de jeu 
   nextBtn.style.visibility = "visible";
 };
 
@@ -40,7 +48,10 @@ const faireChoixOrdinateur = () => {
   // 1 = bouclier
   // 2 = baguette
 
+//Math.floor pour arrondir à l'entier inférieur 
   let nbAleatoire = Math.floor(Math.random() * 3);
+
+//
 
   switch (nbAleatoire) {
     case 0:
@@ -61,8 +72,11 @@ const verifierGagnant = (choixJoueur, choixOrdi) => {
     return;
   }
 
+
+
   if (choixJoueur == EPEE) {
     if (choixOrdi == BOUCLIER) {
+// fonction pour pouvoir réutiliser la fonction dans plusieurs cas de figures 
       return victoireOrdinateur();
     } else if (choixOrdi == BAGUETTE) {
       return victoireJoueur();
@@ -108,13 +122,19 @@ winrate.textContent = `Votre winrate est de : ${pourcentage} %`;
   playerWinSound.play();
 };
 
+
+
 const preparerNouvelleManche = () => {
+
+// reset le css des bouton 
   btnJoueur.forEach((btn) => {
     btn.classList.remove("desactivated");
     btn.classList.remove("active");
 
     btn.addEventListener("click", jouerManche);
   });
+
+  // cacher le bouton tour suivant & reset le css des btn ordinateur
 
   nextBtn.style.visibility = "hidden";
 
@@ -129,12 +149,15 @@ nextBtn.addEventListener("click", preparerNouvelleManche);
 
 btnJoueur.forEach((btn) => btn.addEventListener("click", jouerManche));
 
+
+// reset les valeurs au clique du btn recommencer 
 resetBtn.addEventListener("click", () => {
   scoreJoueur.textContent = 0;
   scoreJ = 0;
   scoreOrdinateur.textContent = 0;
   scoreO = 0;
 winrate.textContent =  'Votre winrate est de  : 0.0%'
+// on peut rappeler la fonction 
   preparerNouvelleManche();
 });
 
@@ -144,5 +167,7 @@ const calculerPourcentageVictoire = () => {
     return 0;
   }
   const pourcentage = (scoreJ / totalGames) * 100;
+  // toFixed permet de choisir le nombre de décimal 
   return pourcentage.toFixed(1);
 };
+    

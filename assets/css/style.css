@@ -1,4 +1,7 @@
+ /* permet de séléctionner la racine du document, ici la balise <html>   */
 :root {
+
+/* -- permet de créer des propriétés sur mesure qu'on pourra réutiliser avec des var() */
   --primary: #00d9ff;
   --secondary: #ff8800;
 
@@ -144,6 +147,8 @@ h1 {
   font-size: 70px;
   margin-top: 10px;
 }
+
+/* permet aux auteurs de définir les étapes qui composent la séquence d'une animation CSS. from => to */
 
 @keyframes flicker {
   0% { opacity: 1; }
