@@ -20,7 +20,8 @@ const jouerManche = (e) => {
   let choix = e.target.closest(".btn-joueur");
 
 
-  // pour chaque bouton joueur désactiver le style
+  // pour chaque bouton joueur mettre à jour les propriétés CSS 
+
   btnJoueur.forEach((btn) => {
     btn.classList.add("desactivated");
     btn.removeEventListener("click", jouerManche);
@@ -35,7 +36,8 @@ const jouerManche = (e) => {
 
   verifierGagnant(choixJoueur, choixOrdi);
 
-  // bouton tour suivant a la fin du tour de jeu 
+  // bouton tour suivant a la fin du tour de jeu
+
   nextBtn.style.visibility = "visible";
 };
 
