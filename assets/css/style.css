@@ -1,7 +1,6 @@
- /* permet de séléctionner la racine du document, ici la balise <html>   */
+/* permet de séléctionner la racine du document, ici la balise <html>   */
 :root {
-
-/* -- permet de créer des propriétés sur mesure qu'on pourra réutiliser avec des var() */
+  /* -- permet de créer des propriétés sur mesure qu'on pourra réutiliser avec des var() */
   --primary: #00d9ff;
   --secondary: #ff8800;
 
@@ -32,6 +31,9 @@ body {
   align-items: center;
 }
 
+.choix {
+  display: flex;
+}
 .score {
   margin-top: 45px;
   margin-bottom: 40px;
@@ -152,22 +154,30 @@ h1 {
 /* permet aux auteurs de définir les étapes qui composent la séquence d'une animation CSS. from => to */
 
 @keyframes flicker {
-  0% { opacity: 1; }
-  80%, 100% { opacity: 0.8; }
+  0% {
+    opacity: 1;
+  }
+  80%,
+  100% {
+    opacity: 0.8;
+  }
 }
 
 @keyframes glow {
-  0%, 100% { text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 30px #ffcc00; }
-  50% { text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 40px #ffcc00, 0 0 60px #ffcc00; }
+  0%,
+  100% {
+    text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 30px #ffcc00;
+  }
+  50% {
+    text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 40px #ffcc00,
+      0 0 60px #ffcc00;
+  }
 }
 
 #animatedText {
-  font-family: 'Old English Text MT', serif;
+  font-family: "Old English Text MT", serif;
   font-size: 90px;
   color: #ffcc00;
   text-align: center;
   animation: flicker 1s infinite alternate, glow 1.5s infinite;
 }
-
-
-

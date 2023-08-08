@@ -11,8 +11,7 @@ let message = document.getElementById("message");
 let nextBtn = document.getElementById("next");
 let scoreO = 0;
 let scoreJ = 0;
-let winrate = document.getElementById("winrate")
-    
+let winrate = document.getElementById("winrate");
 
 // .closest pour récuperer toute la div qui possède la classe .btn-joueur 
 
@@ -108,8 +107,7 @@ const victoireOrdinateur = () => {
   scoreO++;
   scoreOrdinateur.textContent = scoreO;
   const pourcentage = calculerPourcentageVictoire();
- winrate.textContent = `Votre winrate est de : ${pourcentage} %`;
-  scoreOrdinateur.textContent = scoreO;
+  winrate.textContent = `Votre winrate est de : ${pourcentage} %`;
   const computerWinSound = document.getElementById("computerWinSound");
   computerWinSound.play();
 };
@@ -119,11 +117,10 @@ const victoireJoueur = () => {
   scoreJ++;
   scoreJoueur.textContent = scoreJ;
   const pourcentage = calculerPourcentageVictoire();
-winrate.textContent = `Votre winrate est de : ${pourcentage} %`;
+  winrate.textContent = `Votre winrate est de : ${pourcentage} %`;
   const playerWinSound = document.getElementById("playerWinSound");
   playerWinSound.play();
 };
-
 
 
 const preparerNouvelleManche = () => {
@@ -172,4 +169,5 @@ const calculerPourcentageVictoire = () => {
   // toFixed permet de choisir le nombre de décimal 
   return pourcentage.toFixed(1);
 };
-    
+
+
